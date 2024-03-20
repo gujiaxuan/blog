@@ -1,4 +1,4 @@
-export default function NoteSkeleton() {
+export default function BlogSkeleton() {
     return (
       <div
         className="blog skeleton-container"

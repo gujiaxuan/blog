@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-export default function SidebarNoteItemHeader({title, updateTime}) {
+export default function SidebarBlogItemHeader({title, updateTime}) {
   return (
       <header className="sidebar-blog-header">
           <strong>{title}</strong>

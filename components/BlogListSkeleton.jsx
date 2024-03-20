@@ -1,4 +1,4 @@
-export default function NoteListSkeleton() {
+export default function BlogListSkeleton() {
     return (
       <div>
         <ul className="blogs-list skeleton-container">

@@ -1,10 +1,10 @@
 'use server'
 
 import { redirect } from 'next/navigation'
-import {addNote, updateNote, delNote} from '@/lib/redis';
+import {addBlog, updateBlog, delBlog} from '@/lib/redis';
 import { revalidatePath } from 'next/cache';
 
-export async function saveNote(noteId, title, body) {
+export async function saveBlog(noteId, title, body) {
   
   const data = JSON.stringify({
     title,
@@ -13,19 +13,19 @@ export async function saveNote(noteId, title, body) {
   })
 
   if (noteId) {
-    updateNote(noteId, data)
+    updateBlog(noteId, data)
     revalidatePath('/', 'layout')
     redirect(`/note/${noteId}`)
   } else {
-    const res = await addNote(data)
+    const res = await addBlog(data)
     revalidatePath('/', 'layout')
     redirect(`/note/${res}`)
   }
 
 }
 
-export async function deleteNote(noteId) {
-  delNote(noteId)
+export async function deleteBlog(noteId) {
+  delBlog(noteId)
   revalidatePath('/', 'layout')
   redirect('/')
 }

@@ -4,7 +4,7 @@ import { useState, useRef, useEffect, useTransition } from 'react';
 import { useRouter, usePathname } from 'next/navigation'
 import Image from 'next/image';
 
-export default function SidebarNoteContent({
+export default function SidebarBlogContent({
     id,
     title,
     children,

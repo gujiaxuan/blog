@@ -1,9 +1,9 @@
 import BlogEditor from '@/components/BlogEditor'
-import {getNote} from '@/lib/redis';
+import {getBlog} from '@/lib/redis';
 
 export default async function EditPage({ params }) {
   const id = params.id;
-  const blog = await getNote(id)
+  const blog = await getBlog(id)
 
   if (blog === null) {
     return (

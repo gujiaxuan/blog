@@ -1,10 +1,10 @@
 import SidebarBlogItem from '@/components/SidebarBlogItem';
-import { getAllNotes } from '@/lib/redis';
+import { getAllBlogs } from '@/lib/redis';
 
-export default async function NoteList() {
+export default async function BlogList() {
   const sleep = ms => new Promise(r => setTimeout(r, ms));
   await sleep(500);
-  const blogs = await getAllNotes()
+  const blogs = await getAllBlogs()
 
   const arr = Object.entries(blogs);
 

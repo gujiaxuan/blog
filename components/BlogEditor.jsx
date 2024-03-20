@@ -1,12 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { deleteNote, saveNote } from '../app/actions'
+import { deleteBlog, saveBlog } from '../app/actions'
 import BlogPreview from '@/components/BlogPreview'
 import { useFormStatus } from 'react-dom'
 import Image from 'next/image'
 
-export default function NoteEditor({
+export default function BlogEditor({
     id,
     initialTitle,
     initialBody
@@ -46,7 +46,7 @@ export default function NoteEditor({
                         className="blog-editor-done"
                         disabled={pending}
                         type="submit"
-                        formAction={() => saveNote(id, title, body)}
+                        formAction={() => saveBlog(id, title, body)}
                         role="menuitem"
                     >
                         <Image
@@ -62,7 +62,7 @@ export default function NoteEditor({
                         <button
                             className="blog-editor-delete"
                             disabled={pending}
-                            formAction={() => deleteNote(id)}
+                            formAction={() => deleteBlog(id)}
                             role="menuitem"
                         >
                             <Image
