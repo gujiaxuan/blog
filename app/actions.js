@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation'
 import {addBlog, updateBlog, delBlog} from '@/lib/redis';
 import { revalidatePath } from 'next/cache';
 
-export async function saveBlog(noteId, title, body) {
+export async function saveBlog(blogId, title, body) {
   
   const data = JSON.stringify({
     title,
@@ -12,20 +12,20 @@ export async function saveBlog(noteId, title, body) {
     updateTime: new Date()
   })
 
-  if (noteId) {
-    updateBlog(noteId, data)
+  if (blogId) {
+    updateBlog(blogId, data)
     revalidatePath('/', 'layout')
-    redirect(`/note/${noteId}`)
+    redirect(`/blog/${blogId}`)
   } else {
     const res = await addBlog(data)
     revalidatePath('/', 'layout')
-    redirect(`/note/${res}`)
+    redirect(`/blog/${res}`)
   }
 
 }
 
-export async function deleteBlog(noteId) {
-  delBlog(noteId)
+export async function deleteBlog(blogId) {
+  delBlog(blogId)
   revalidatePath('/', 'layout')
   redirect('/')
 }
