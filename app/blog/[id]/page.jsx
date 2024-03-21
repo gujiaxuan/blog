@@ -4,9 +4,7 @@ import { getBlog } from '@/lib/redis';
 export default async function Page({ params }) {
     const id = params.id;
     const blog = await getBlog(id)
-    const sleep = ms => new Promise(r => setTimeout(r, ms));
-    await sleep(500);
-
+ 
     if (blog == null) {
         return (
             <div className="blog--empty-state">
